@@ -1,29 +1,31 @@
-import {ButtonGroup} from "react-bootstrap"
+import {ButtonGroup,Col,Button,Card,Row} from "react-bootstrap"
 import "./Card-style.css";
 const RandomCart = ({items,recipesApi,addToFavorite}) => {
   return (
-    <div className="card text-center">
+    <Row>
         
     {items.map(item => (
-
+      <Col className="container-fluid d-flex justify-content-center">
+             <Card className="card text-center shadow">
         <div key={item.idMeal}>
           <div className="overflow">
-              <img src={item.strMealThumb} alt="foods" className="card-img-top"/>
+              <Card.Img src={item.strMealThumb} alt="foods" className="card-img-top"/>
           </div>
-              <div className="card-body text-dark">
-              <h4 className="card-title">{item.strMeal}</h4>
-              <p className="card-text text-secondary">{item.strInstructions}</p>
-          </div>
-            <div>
+              <Card.Body className="card-body text-dark">
+                  <Card.Title className="card-title">{item.strMeal}</Card.Title>
+                  <Card.Text className="card-text text-secondary">{item.strInstructions}</Card.Text>
+            
               <ButtonGroup>
-                <button className="btn btn-outline-success" onClick={() => addToFavorite(item)}>Like</button>
-                <button className="btn btn-outline-primary" onClick={recipesApi}>Skip</button>
+                  <Button variant="outline-success" onClick={() => addToFavorite(item)}>Like</Button>
+                  <Button variant="outline-primary" onClick={recipesApi}>Skip</Button>
               </ButtonGroup>
-            </div> 
+              </Card.Body>
         </div>
+        </Card>
+              </Col>
       ))}
   
-  </div>
+  </Row>
   )
 }
 

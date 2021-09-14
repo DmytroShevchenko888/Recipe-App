@@ -89,13 +89,13 @@ const Routes = ({show, handleClose,handleShow}) => {
         <div>
             <Switch>
                 <Route path="/" exact>
-                    <div className="container-fluid d-flex justify-content-center">
+                    
                             <RandomCart
                             items={items}
                             recipesApi={recipesApi}
                             addToFavorite={addToFavorite}
                             /> 
-                            </div>  
+                             
                 </Route>
                     
                     
